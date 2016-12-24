@@ -2,6 +2,17 @@ import time
 import itertools
 import copy
 
+class Elements:
+	HYDROGEN = 1
+	LITHIUM = 2
+	THULIUM	= 3
+	PLUTONIUM = 4
+	STRONTIUM = 5
+	PROMETHIUM = 6
+	RUTHENIUM = 7
+	ELERIUM = 8
+	DILITHIUM = 9
+
 class Component(object):
 	def __init__(self, element):
 		self.element = element
@@ -55,17 +66,6 @@ class State(object):
 		self._hash = str(self.elevator) + '|' + floors_hash
 		return self._hash
 
-class Elements:
-	HYDROGEN = 1
-	LITHIUM = 2
-	THULIUM	= 3
-	PLUTONIUM = 4
-	STRONTIUM = 5
-	PROMETHIUM = 6
-	RUTHENIUM = 7
-	ELERIUM = 8
-	DILITHIUM = 9
-
 def visit_state(state, visited_states):
 	visited_states.add(state.hash)
 
@@ -73,10 +73,6 @@ def visited_state(state, visited_states):
 	return state.hash in visited_states
 
 def move_component(component, src_floor, dst_floor):
-	if component not in src_floor.components:
-		print component
-		print src_floor.components
-		import pdb;pdb.set_trace()
 	src_floor.components.remove(component)
 	dst_floor.components.append(component)
 
