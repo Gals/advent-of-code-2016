@@ -2,7 +2,7 @@ import time
 import itertools
 import copy
 
-class Generator(object):
+class Component(object):
 	def __init__(self, element):
 		self.element = element
 
@@ -11,14 +11,11 @@ class Generator(object):
 			self.__class__.__name__,
 			self.element)
 
-class Microchip(object):
-	def __init__(self, element):
-		self.element = element
+class Generator(Component):
+	pass
 
-	def __repr__(self):
-		return '<%s [%s]>' % (
-			self.__class__.__name__,
-			self.element)
+class Microchip(Component):
+	pass
 
 class Floor(object):
 	def __init__(self, number, components=None):
