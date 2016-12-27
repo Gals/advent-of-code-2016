@@ -7,6 +7,7 @@ import sys
 import re
 
 class Instruction(object):
+	"""Represents an Assembunny instruction."""
 	def __init__(self, line):
 		self.line = line
 
