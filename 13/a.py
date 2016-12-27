@@ -53,44 +53,6 @@ def find_shortest_path(src, dst, favorite_number):
 
 	return min(distances)
 
-# def find_shortest_path(src, dst, favorite_number, 
-# 	path=None, paths=None):
-# 	path = path or []
-# 	paths = paths or []
-
-# 	if src.x == dst.x and src.y == dst.y:
-# 		paths.append(len(path))
-# 		# We've reached our destination.
-# 		return min(paths)
-
-# 	neighbours_paths = []
-# 	offsets = [(1, 0), (0, 1), (-1, 0), (0, -1)]
-# 	for (offset_x, offset_y) in offsets:
-# 		neighbour = Point(src.x + offset_x, src.y + offset_y)
-# 		if neighbour.x < 0 or neighbour.y < 0:
-# 			# Skip invalid points.
-# 			continue
-# 		if point_in_path(neighbour, path):
-# 			# Avoid loops.
-# 			continue
-# 		if is_wall(neighbour, favorite_number):
-# 			# Hitting a wall.
-# 			continue
-# 		shortest_path = find_shortest_path(
-# 			neighbour,
-# 			dst,
-# 			favorite_number,
-# 			path + [neighbour],
-# 			paths)
-# 		if shortest_path == -1:
-# 			continue
-# 		neighbours_paths.append(shortest_path)
-
-# 	if len(neighbours_paths) == 0:
-# 		return -1
-
-# 	return min(neighbours_paths)
-
 def main():
 	favorite_number = int(sys.argv[1])
 	start_point = Point(1, 1)
