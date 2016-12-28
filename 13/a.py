@@ -1,14 +1,5 @@
 import sys
 
-def is_wall(p, favorite_number):
-	x = p.x
-	y = p.y
-
-	result = x * x + 3 * x + 2 * x * y + y + y * y	
-	result += favorite_number 
-	binary = '{0:b}'.format(result)
-	return binary.count('1') % 2 == 1
-
 class Point(object):
 	def __init__(self, x, y):
 		self.x = x
@@ -19,6 +10,15 @@ class Point(object):
 			self.__class__.__name__,
 			self.x,
 			self.y)
+
+def is_wall(p, favorite_number):
+	x = p.x
+	y = p.y
+
+	result = x * x + 3 * x + 2 * x * y + y + y * y	
+	result += favorite_number 
+	binary = '{0:b}'.format(result)
+	return binary.count('1') % 2 == 1
 
 def point_in_list(p, points):
 	for point in points:
