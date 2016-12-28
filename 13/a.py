@@ -28,7 +28,7 @@ def point_in_list(p, points):
 
 def find_shortest_path(src, dst, favorite_number):
 	queue = [(0, src)]
-	visited_points = []
+	visited = []
 	distances = []
 
 	while len(queue) > 0:
@@ -43,13 +43,13 @@ def find_shortest_path(src, dst, favorite_number):
 			if neighbour.x < 0 or neighbour.y < 0:
 				# Skip invalid points.
 				continue
-			if point_in_list(neighbour, visited_points):
+			if point_in_list(neighbour, visited):
 				# Avoid loops.
 				continue
 			if is_wall(neighbour, favorite_number):
 				continue
 			queue.append((distance + 1, neighbour))
-			visited_points.append(neighbour)
+			visited.append(neighbour)
 
 	return min(distances)
 
