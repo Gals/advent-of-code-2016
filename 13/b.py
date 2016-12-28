@@ -26,14 +26,15 @@ def point_in_list(p, points):
 			return True
 	return False
 
-def count_distinct_points(src, max_steps, favorite_number):
+def count_distinct_points(src, max_distance, favorite_number):
 	queue = [(0, src)]
-	visited_points = []
+	visited = []
 
 	while len(queue) > 0:
 		step, p = queue.pop(0)
-		if step == max_steps:
+		if step == max_distance:
 			break
+
 
 		offsets = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 		for (offset_x, offset_y) in offsets:
@@ -41,20 +42,20 @@ def count_distinct_points(src, max_steps, favorite_number):
 			if neighbour.x < 0 or neighbour.y < 0:
 				# Skip invalid points.
 				continue
-			if point_in_list(neighbour, visited_points):
+			if point_in_list(neighbour, visited):
 				# Avoid loops.
 				continue
 			if is_wall(neighbour, favorite_number):
 				continue
 			queue.append((step + 1, neighbour))
-			visited_points.append(neighbour)
+			visited.append(neighbour)
 
-	return len(visited_points)
+	return len(visited)
 
 def main():
 	favorite_number = int(sys.argv[1])
 	start_point = Point(1, 1)
-	
+
 	print count_distinct_points(
 		start_point,
 		50,
