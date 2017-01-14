@@ -5,7 +5,6 @@ from pprint import pprint
 from assembunny import *
 
 class KeypadExecutionContext(ExecutionContext):
-
 	def _optimize_mul(self, body):
 		# b = [b] or constant
 		# a += b * d
