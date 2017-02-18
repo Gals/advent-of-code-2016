@@ -86,19 +86,7 @@ def solve(nodes, rows):
 
 	return shortest_distance
 
-def test():
-	rows = [
-		'###########',
-		'#0.1.....2#',
-		'#.#######.#',
-		'#4.......3#',
-		'###########'
-	]
-	nodes = parse_grid(rows)
-	assert solve(nodes, rows) == 14
-
 def main():
-	# test()
 	data = open(sys.argv[1], 'r').read()
 	rows = data.split('\n')[:-1]
 	nodes = parse_grid(rows)
