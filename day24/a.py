@@ -74,8 +74,8 @@ def solve(nodes, rows):
 				distance = len(shortest_path)
 				# Cache distances from 'a' to 'b'.
 				# Distance from 'b' to 'a' is equivalent, cache it too.
-				distances.setdefault((a, b), distance)
-				distances.setdefault((b, a), distance)
+				distances[(a, b)] = distance
+				distances[(b, a)] = distance
 			total_distance += distance
 		shortest_distance = min(shortest_distance, total_distance)
 
