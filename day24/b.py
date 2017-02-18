@@ -64,7 +64,7 @@ def solve(nodes, rows):
 
 	for candidate_path in itertools.permutations(nodes_to_visit):
 		# Filter out paths which don't start at node '0'
-		# and don't end at '0'.
+		# or don't end at '0'.
 		if candidate_path[0] != 0 or candidate_path[-1] != 0:
 			continue
 
